@@ -1,0 +1,7 @@
+CVS
+venv
+*.pyc
+staticfiles
+*~
+*.swp
+*#

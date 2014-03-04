@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+
+    <script type="text/javascript">
+      var infowindow = null;
+
+      var stations = {};
+      var apartments = {};
+
+      {% for station in metro_system.station_set.all %}
+        stations['{{station.name}}'] = {
+          position: new google.maps.LatLng({{station.lat}}, {{station.lng}})
+        };
+
+        {% for apartment_near_station in station.apartmentnearstation_set.all %}
+          {% if apartment_near_station.distance <= 0.5 %}
+            apartments['{{apartment_near_station.apartment.url}}'] = {
+              position: new google.maps.LatLng({{apartment_near_station.apartment.lat}}, {{apartment_near_station.apartment.lng}}),
+              desc: "<div class='apartment_desc'>" + 
+                    "<a href='{{apartment_near_station.apartment.url}}'>{{apartment_near_station.apartment.title}}</a>" +
+                    "<br />{{apartment_near_station.distance|floatformat}} miles from {{apartment_near_station.station.name}} Metro Station" +
+                    "</div>"
+            };
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+   
+      function initialize() {
+        var infowindow = new google.maps.InfoWindow({
+          content: "temporary"
+        });
+
+        var latlng = new google.maps.LatLng(39.085451999999997, -77.146688999999995);
+
+        var myOptions = {
+          zoom: 12,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        for (var url in apartments) {
+          var markerOptions = {
+            position: apartments[url].position,
+            html: apartments[url].desc,
+            map:map
+          };
+
+          marker = new google.maps.Marker(markerOptions);
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(this.html);
+            infowindow.open(map, this);
+          });
+        }
+
+        var orangeline = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.877693,-77.271562),
+          new google.maps.LatLng(38.883015,-77.228939),
+          new google.maps.LatLng(38.90067,-77.189394),
+          new google.maps.LatLng(38.885841,-77.157177),
+          new google.maps.LatLng(38.882071,-77.111845),
+          new google.maps.LatLng(38.883104,-77.103177),
+          new google.maps.LatLng(38.886373,-77.096963),
+          new google.maps.LatLng(38.891499,-77.08391),
+          new google.maps.LatLng(38.896595,-77.071460), // Rosslyn
+          new google.maps.LatLng(38.900599,-77.050273),
+          new google.maps.LatLng(38.901311,-77.03981),
+          new google.maps.LatLng(38.901316,-77.033652),
+          new google.maps.LatLng(38.898303,-77.028099),
+          new google.maps.LatLng(38.893757,-77.028218),
+          new google.maps.LatLng(38.888022,-77.028232),
+          new google.maps.LatLng(38.884775,-77.021964),
+          new google.maps.LatLng(38.884958,-77.01586),
+          new google.maps.LatLng(38.884968,-77.005137),
+          new google.maps.LatLng(38.884124,-76.995334),
+          new google.maps.LatLng(38.880841,-76.985721),
+          new google.maps.LatLng(38.88594,-76.977485),
+          new google.maps.LatLng(38.898284,-76.948042),
+          new google.maps.LatLng(38.907734,-76.936177),
+          new google.maps.LatLng(38.91652,-76.915427),
+          new google.maps.LatLng(38.934411,-76.890988),
+          new google.maps.LatLng(38.947674,-76.872144)], 
+          strokeColor:"#FF6600", strokeOpacity:1, strokeWeight:8});
+        orangeline.setMap(map);
+
+        // Red line
+        var redline = new google.maps.Polyline({path:[
+          new google.maps.LatLng(39.119819,-77.164921),
+          new google.maps.LatLng(39.084215,-77.146424),
+          new google.maps.LatLng(39.062359,-77.121113),
+          new google.maps.LatLng(39.048043,-77.113131),
+          new google.maps.LatLng(39.029158,-77.10415),
+          new google.maps.LatLng(38.999947,-77.097253),
+          new google.maps.LatLng(38.984282,-77.094431),
+          new google.maps.LatLng(38.960744,-77.085969),
+          new google.maps.LatLng(38.947808,-77.079615),
+          new google.maps.LatLng(38.94362,-77.063511),
+          new google.maps.LatLng(38.934703,-77.058226),
+          new google.maps.LatLng(38.924999,-77.052648),
+          new google.maps.LatLng(38.909499,-77.04362),
+          new google.maps.LatLng(38.903192,-77.039766),
+          new google.maps.LatLng(38.898303,-77.028099),
+          new google.maps.LatLng(38.89834,-77.021851),
+          new google.maps.LatLng(38.896084,-77.016643),
+          new google.maps.LatLng(38.897723,-77.006745),
+          new google.maps.LatLng(38.910916,-77.00185),
+          new google.maps.LatLng(38.920741,-76.995984),
+          new google.maps.LatLng(38.933234,-76.994544),
+          new google.maps.LatLng(38.951777,-77.002174),
+          new google.maps.LatLng(38.975532,-77.017834),
+          new google.maps.LatLng(38.993841,-77.031321),
+          new google.maps.LatLng(39.015413,-77.042953),
+          new google.maps.LatLng(39.038558,-77.051098),
+          new google.maps.LatLng(39.061713,-77.05341)], 
+          strokeColor:"#ff0033", strokeOpacity:1, strokeWeight:8});
+        redline.setMap(map);
+
+        // Green line
+        var greenline = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.826995,-76.912134),
+          new google.maps.LatLng(38.843891,-76.932022),
+          new google.maps.LatLng(38.851187,-76.956565),
+          new google.maps.LatLng(38.840974,-76.97536),
+          new google.maps.LatLng(38.845334,-76.98817),
+          new google.maps.LatLng(38.862072,-76.995648),
+          new google.maps.LatLng(38.876588,-77.005086),
+          new google.maps.LatLng(38.876221,-77.017491),
+          new google.maps.LatLng(38.884775,-77.021964),
+          new google.maps.LatLng(38.893893,-77.021902),
+          new google.maps.LatLng(38.89834,-77.021851),
+          new google.maps.LatLng(38.905604,-77.022256),
+          new google.maps.LatLng(38.912919,-77.022194),
+          new google.maps.LatLng(38.916489,-77.028938),
+          new google.maps.LatLng(38.928672,-77.032775),
+          new google.maps.LatLng(38.936077,-77.024728),
+          new google.maps.LatLng(38.951777,-77.002174),
+          new google.maps.LatLng(38.954931,-76.969881),
+          new google.maps.LatLng(38.965276,-76.956182),
+          new google.maps.LatLng(38.978523,-76.928432),
+          new google.maps.LatLng(39.011036,-76.911362)], 
+          strokeColor:"#339933", strokeOpacity:1, strokeWeight:8});
+        greenline.setMap(map);
+
+        // Blue line Franconia - Rosslyn
+        var blueline_franconia_rosslyn = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.766129,-77.168797),
+          new google.maps.LatLng(38.799193,-77.129407),
+          new google.maps.LatLng(38.806474,-77.061115),
+          new google.maps.LatLng(38.814009,-77.053763),
+          new google.maps.LatLng(38.852985,-77.043805),
+          new google.maps.LatLng(38.85779,-77.050589),
+          new google.maps.LatLng(38.863045,-77.059507),
+          new google.maps.LatLng(38.869349,-77.054013),
+          new google.maps.LatLng(38.884574,-77.063108),
+          new google.maps.LatLng(38.896595,-77.071460)], 
+          strokeColor:"#0000CC", strokeOpacity:1, strokeWeight:8}); //Rosslyn
+        blueline_franconia_rosslyn.setMap(map);
+      
+        // Blue line half width Rosslyn - Stadium Armory
+        var blueline_rosslyn_armory = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.896595,-77.071460), //Rosslyn
+          new google.maps.LatLng(38.900599,-77.050273),
+          new google.maps.LatLng(38.901311,-77.03981),
+          new google.maps.LatLng(38.901316,-77.033652),
+          new google.maps.LatLng(38.898303,-77.028099),
+          new google.maps.LatLng(38.893757,-77.028218),
+          new google.maps.LatLng(38.888022,-77.028232),
+          new google.maps.LatLng(38.884775,-77.021964),
+          new google.maps.LatLng(38.884958,-77.01586),
+          new google.maps.LatLng(38.884968,-77.005137),
+          new google.maps.LatLng(38.884124,-76.995334),
+          new google.maps.LatLng(38.880841,-76.985721),
+          new google.maps.LatLng(38.88594,-76.977485)],
+          strokeColor:"#0000CC", strokeOpacity:1, strokeWeight:3});
+        blueline_rosslyn_armory.setMap(map);
+
+        // Drawing Blue line Stadium Armory - Largo
+        var blueline_armory_largo = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.88594,-76.977485),
+          new google.maps.LatLng(38.890488,-76.938291),
+          new google.maps.LatLng(38.889757,-76.913382),
+          new google.maps.LatLng(38.886713,-76.893592),
+          new google.maps.LatLng(38.8913,-76.8682),
+          new google.maps.LatLng(38.9008,-76.8449)], 
+          strokeColor:"#0000CC", strokeOpacity:1, strokeWeight:10});
+        blueline_armory_largo.setMap(map);
+      
+        // Drawing Yellow line Huntington - King St
+        var yellowline_huntington_king = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.793841,-77.075301),
+          new google.maps.LatLng(38.800313,-77.071173),
+          new google.maps.LatLng(38.806474,-77.061115)], 
+          strokeColor:"#FFFF00", strokeOpacity:1, strokeWeight:8});
+        yellowline_huntington_king.setMap(map);
+      
+        // Drawing Yellow line King St. - Pentagon half width
+        var yellowline_king_pentagon = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.806474,-77.061115),
+          new google.maps.LatLng(38.814009,-77.053763),
+          new google.maps.LatLng(38.852985,-77.043805),
+          new google.maps.LatLng(38.85779,-77.050589),
+          new google.maps.LatLng(38.863045,-77.059507),
+          new google.maps.LatLng(38.869349,-77.054013)], 
+          strokeColor:"#FFFF00", strokeOpacity:1, strokeWeight:3});
+        yellowline_king_pentagon.setMap(map);
+      
+        // Drawing Yellow line Pentagon - Lenfant
+        var yellowline_pentagon_lenfant = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.869349,-77.05401),
+          new google.maps.LatLng(38.884775,-77.021964)], 
+          strokeColor:"#FFFF00", strokeOpacity:1, strokeWeight:8});
+        yellowline_pentagon_lenfant.setMap(map);
+
+        // Yellow line Lenfant - Mt Vernon half width
+        // Added extension to Fort Totten effective 12/31/2006
+        var yellowline_lenfant_mtvernon = new google.maps.Polyline({path:[
+          new google.maps.LatLng(38.884775,-77.021964),
+          new google.maps.LatLng(38.893893,-77.021902),
+          new google.maps.LatLng(38.89834,-77.021851),
+          new google.maps.LatLng(38.905604,-77.022256),
+          new google.maps.LatLng(38.912919,-77.022194),
+          new google.maps.LatLng(38.916489,-77.028938),
+          new google.maps.LatLng(38.928672,-77.032775),
+          new google.maps.LatLng(38.936077,-77.024728),
+          new google.maps.LatLng(38.951777,-77.002174)], 
+          strokeColor:"#FFFF00", strokeOpacity:1, strokeWeight:3});
+        yellowline_lenfant_mtvernon.setMap(map);
+
+        draw_station_markers(redline.getPath());
+        draw_station_markers(orangeline.getPath());
+        draw_station_markers(greenline.getPath());
+        draw_station_markers(blueline_franconia_rosslyn.getPath());
+        draw_station_markers(blueline_rosslyn_armory.getPath());
+        draw_station_markers(blueline_armory_largo.getPath());
+        draw_station_markers(yellowline_huntington_king.getPath());
+        draw_station_markers(yellowline_king_pentagon.getPath());
+        draw_station_markers(yellowline_pentagon_lenfant.getPath());
+        draw_station_markers(yellowline_lenfant_mtvernon.getPath());
+
+        AutoCenter();
+
+        function draw_station_markers(station_path) {
+          for (var i = 0; i < station_path.getLength(); i++) {
+            var image = new google.maps.MarkerImage('/media/pylon.png', null, null, new google.maps.Point(4, 4));
+            var markerOptions = {
+              position: station_path.getAt(i),
+              icon: image,
+              map:map
+            };
+
+            marker = new google.maps.Marker(markerOptions);
+          }
+        }
+
+        function AutoCenter() {
+          var bounds = new google.maps.LatLngBounds();
+          for (var url in apartments) {
+            bounds.extend(apartments[url].position);
+          };
+          map.fitBounds(bounds);
+        }
+      }
+    </script>
+{% endblock %}
+
+{% block title %} Welcome to By the Metro {% endblock %}
+
+{% block content %}
+    <div style="border: 1px dotted;" id="map_canvas"></div>
+{% endblock %}

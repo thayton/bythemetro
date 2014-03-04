@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if user.is_authenticated %}
+    {{ user.username }}
+  {% else %}
+    Register account to create alerts 
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    {% if alert_list %}
+      Alerts for {{ user.username }} 
+      <table border=1>
+        <tr>
+          <th>Metro</th>
+          <th>Distance (miles)</th>
+        </tr>      
+        {% for alert in alert_list %}
+        <tr>
+          <td><a href="/alert/{{ alert.id }}/">{{ alert.station }}</a></td>
+          <td>{{ alert.distance }}</td>
+          <td>
+            <a href="/alert/{{ alert.id }}/edit/">edit</a>
+            <a href="/alert/{{ alert.id }}/delete/">delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+      </table>
+    {% else %}
+      <p>You have not created any alerts.</p>
+    {% endif %}
+    <a href="/create_alert/">Create</a> a new alert.
+  {% else %}
+    <p>Set up alerts to get notified by email when apartments within walking distance of a metro stop
+    become available.</p>
+    <p><a href="/login/">Login</a> into your account to create and manage alerts. If you don't already
+       have an account, you can register for a new account <a href="/register/">here</a>.</p>
+  {% endif %}
+{% endblock %}

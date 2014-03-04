@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} User {{ user.username }} {% endblock %}
+
+{% block content %}
+  <table>
+    <tr>
+      <td style="width: 60px;">user:</td>
+      <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+      <td style="width: 60px;">email:</td>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td colspan="2"><a href="/password_change/">Change</a> your password.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><a href="/password_reset/">Reset</a> your password.</td>
+  </table>
+{% endblock %}

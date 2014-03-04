@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} {{ user.username }} {% endblock %}
+{% block head %}  {% endblock %}
+
+{% block content %}
+<h1>Delete Alert</h1>
+
+Are you sure you want to delete the following alert:
+
+{{ alert.station }}
+
+<form method="post" action=".">{% csrf_token %}
+  <input type="submit" name="confirm_delete" value="Yes" />
+</form>
+
+{% endblock %}

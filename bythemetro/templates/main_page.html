@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome to By the Metro {% endblock %}
+
+{% block content %}
+  {% if user.username %}
+    <p>Welcome {{ user.username }}! Manage your <a href="/user/{{ user.id }}/">alerts</a></p>
+  {% else %}
+    <p>You need to <a href="/login/">login</a> before you can create and manage alerts</p>
+  {% endif %}
+
+  <br />
+
+  {{ metro_system.name }}
+  <ul>
+  {% for station in metro_system.station_set.all %}
+    <li>{{station.name}}</li>
+    <ul>
+    {% for apartment_near_station in station.apartmentnearstation_set.all %}
+      <li>
+        {{apartment_near_station.distance|floatformat}} miles
+        <a target='_blank' href='{{apartment_near_station.apartment.url}}'>{{apartment_near_station.apartment.title}}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+  </ul>
+{% endblock %}

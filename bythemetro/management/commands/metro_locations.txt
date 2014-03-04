@@ -1,0 +1,164 @@
+(
+('Addison Road', 'Addison Road Metro Station, Walker Mill, MD 20743, USA', (38.886702, -76.893289999999993)),
+('Anacostia', 'Anacostia Metro Station, Washington, DC 20020, USA', (38.862116999999998, -76.995324999999994)),
+('Archives', 'Archives Metro Station, Washington, DC 20004, USA', (38.893906999999999, -77.021591999999998)),
+('Arlington Cemetery', 'Arlington Cemetery Metro Station, Arlington, VA 22202, USA', (38.884611999999997, -77.062794999999994)),
+
+('Ballston-MU', 'Virginia Square, Arlington, VA, USA', (38.885800600000003, -77.105367299999997)),
+
+('Benning Road', 'Benning Rd Metro Station, Washington, DC 20019, USA', (38.890417999999997, -76.937662000000003)),
+
+('Bethesda', 'Bethesda Metro Station, Bethesda, MD 20814, USA', (38.984431000000001, -77.094150999999997)),
+
+('Braddock', 'Braddock Metro Station, Alexandria, VA 22314, USA', (38.813544999999998, -77.053864000000004)),
+
+('Branch Ave', 'Branch Ave Metro Station, Camp Springs, MD 20746, USA', (38.827021999999999, -76.911801999999994)),
+
+('Brookland-CUA', 'Brookland-Cua Metro, Washington, DC 20017, USA', (38.933231999999997, -76.994473999999997)),
+
+('Capitol Heights', 'Capitol Heights Metro Station, Capitol Heights, MD 20743, USA', (38.889570999999997, -76.913313000000002)),
+
+('Capitol South', 'Capitol South Metro Station, Washington, DC 20003, USA', (38.885669, -77.005892000000003)),
+
+('Cheverly', 'Cheverly Metro Station, Cheverly, MD 20785, USA', (38.916552000000003, -76.915103999999999)),
+
+('Clarendon', 'Clarendon Metro Station, Wilson Blvd, Arlington, VA 22201, USA', (38.887097500000003, -77.0952111)),
+
+('Cleveland Park', 'Cleveland Park Metro Station, Washington, DC 20008, USA', (38.935851999999997, -77.058623999999995)),
+
+('College Park-U of MD', 'College Park/U of MD Metro Station, College Park, MD 20740, USA', (38.978400000000001, -76.928196999999997)),
+
+('Columbia Heights', 'Columbia Heights Metro Station, Washington, DC 20010, USA', (38.928711, -77.032454000000001)),
+
+('Congress Heights', 'Congress Heights Metro Station, Washington, DC 20020, USA', (38.845379000000001, -76.987859999999998)),
+
+('Court House', 'Courthouse Metro Station, Arlington, VA 22201, USA', (38.891331000000001, -77.084823)),
+
+('Crystal City', 'Crystal City Metro Station, 1750 S Bell St, Arlington, VA 22202, USA', (38.858018999999999, -77.051421399999995)),
+
+('Deanwood', 'Deanwood Metro Station, Washington, DC 20019, USA', (38.907944999999998, -76.935569000000001)),
+
+('Dunn Loring-Merrifield', 'Dunn Loring Merrifield Metro Station, Merrifield, VA 22180, USA', (38.883146000000004, -77.228654000000006)),
+
+('Dupont Circle', 'Dupont Circle Metro Station, Washington, DC 20036, USA', (38.911129000000003, -77.044427999999996)),
+
+('Eisenhower Avenue', 'Eisenhower Metro Station, Alexandria, VA 22314, USA', (38.800392000000002, -77.071365)),
+
+('Farragut North', 'Farragut North Metro Station, Washington, DC 20036, USA', (38.903297000000002, -77.039501999999999)),
+
+('Farragut West', 'Farragut West Metro Station, Washington, DC 20006, USA', (38.901366000000003, -77.039482000000007)),
+
+('Federal Center', 'Federal Center Metro Station, Washington, DC 20024, USA', (38.884981000000003, -77.015535999999997)),
+
+('Federal Triangle', 'Federal Triangle Metro Station, Washington, DC 20004, USA', (38.893788999999998, -77.027895999999998)),
+
+('Foggy Bottom', 'Foggy Bottom Metro Station, Washington, DC 20052, USA', (38.900705000000002, -77.050026000000003)),
+
+('Forest Glen', 'Forest Glen Metro Station, Forest Glen, MD 20910, USA', (39.015464999999999, -77.042666999999994)),
+
+('Fort Totten', 'Fort Totten Metro Station, Washington, DC 20017, USA', (38.951808, -77.001863999999998)),
+
+('Franconia-Springfield', 'Franconia Springfield Metro, Springfield, VA 22150, USA', (38.766196000000001, -77.168486999999999)),
+
+('Friendship Heights', 'Friendship Heights Metro Station, Bethesda, MD 20815, USA', (38.960996999999999, -77.085767000000004)),
+
+('Gallery Pl-Chinatown', 'Gallery Place Chinatown Metro Station, Washington, DC 20001, USA', (38.898353999999998, -77.021527000000006)),
+
+('Georgia Ave Petworth', 'Georgia Ave Petworth Station, Washington, DC 20010, USA', (38.936255000000003, -77.024252000000004)),
+
+('Glenmont', 'Glenmont Metro Station, Wheaton-Glenmont, MD 20906, USA', (39.061743, -77.053096999999994)),
+
+('Greenbelt', 'Greenbelt Metro Station, Greenbelt, MD 20740, USA', (39.011066999999997, -76.911011000000002)),
+
+('Huntington', 'Huntington Av Metro Station, Huntington, VA 22303, USA', (38.793894999999999, -77.074955000000003)),
+
+('Judiciary Square', 'Judiciary Square Metro Station, Washington, DC 20001, USA', (38.896121000000001, -77.016311999999999)),
+
+('King Street', 'King Street Metro Station, Alexandria, VA 22314, USA', (38.806505999999999, -77.060795999999996)),
+
+('L\'Enfant Plaza', 'L\'Enfant Plaza Metro Station, Washington, DC 20024, USA', (38.884886000000002, -77.021600000000007)),
+
+('Landover', 'Landover Metro Station, Greater Landover, MD 20785, USA', (38.933993999999998, -76.890005000000002)),
+
+('Largo Town Center', 'Largo Town Center Metro Station, Lake Arbor, MD 20774, USA', (38.900269000000002, -76.844539999999995)),
+
+('McPherson Square', 'McPherson Sq Metro Station, Washington, DC 20005, USA', (38.901335000000003, -77.031958000000003)),
+
+('Medical Center Metro/Naval Med Ctr & NIH', 'Medical Center Metro/Naval Med Ctr & NIH, Bethesda, MD 20889, USA', (39.000062, -77.096947999999998)),
+
+('Metro Center', 'Metro Center Metro Station, Washington, DC 20001, USA', (38.898327000000002, -77.027777)),
+
+('Minnesota Ave', 'Minnesota Ave Metro Station, Washington, DC 20019, USA', (38.898313000000002, -76.947716)),
+
+('Morgan Boulevard', 'Morgan Boulevard Metro Station, 13, Kent, MD 20785, USA', (38.893585999999999, -76.868498000000002)),
+
+('MT Vernon Sq/7th St-Convention Center', 'Mt Vernon Sq/7th St-Convention Center, Washington, DC 20001, USA', (38.905638000000003, -77.021905000000004)),
+
+('Navy Yard', 'Navy Yard Metro Station, Washington, DC 20003, USA', (38.876477999999999, -77.007463000000001)),
+
+('Naylor Road', 'Naylor Road Metro Station, Hillcrest Heights, MD 20748, USA', (38.851163999999997, -76.956314000000006)),
+
+('New Carrollton', 'New Carrollton Metro Station, Lanham, MD 20785, USA', (38.946911999999998, -76.870445000000004)),
+
+('New York Ave', 'New York Avenue Metro Station, Washington, DC 20002, USA', (38.907412999999998, -77.002981000000005)),
+
+('Pentagon', 'Pentagon Metro Station, Arlington, VA 22202, USA', (38.869473999999997, -77.053776999999997)),
+
+('Pentagon City', 'Pentagon City Metro Station, Arlington, VA 22202, USA', (38.862960999999999, -77.059141999999994)),
+
+('Potomac Ave', 'Potomac Ave Metro, Washington, DC 20003, USA', (38.880873999999999, -76.985397000000006)),
+
+('Prince George\'s Plaza', 'Prince Georges Plaza Metro Station, Hyattsville, MD 20782, USA', (38.965252, -76.955988000000005)),
+
+('Rhode Island', 'Rhode Island Metro Station, Washington, DC 20018, USA', (38.920777999999999, -76.995682000000002)),
+
+('Rockville', 'Rockville Metro Station, Rockville, MD 20850, USA', (39.085451999999997, -77.146688999999995)),
+
+('Ronald Reagan Washington National Airport', 'Ronald Reagan Washington National Airport Metro Station, 2400 S Smith Blvd, Arlington, VA 22202, USA', (38.853445200000003, -77.044045400000002)),
+
+('Rosslyn', 'Rosslyn Metro Station, Arlington, VA 22209, USA', (38.895493000000002, -77.071954000000005)),
+
+('Shady Grove', 'Shady Grove Metro Station, 9, MD 20855, USA', (39.119990000000001, -77.164760999999999)),
+
+('Shaw', 'Shaw Metro Station, Washington, DC 20001, USA', (38.914546000000001, -77.021927000000005)),
+
+('Silver Spring', 'Silver Spring Metro Station, Silver Spring, MD 20910, USA', (38.993658000000003, -77.032307000000003)),
+
+('Smithsonian', 'Smithsonian Metro Station, Washington, DC 20560, USA', (38.887587000000003, -77.028174000000007)),
+
+('Southern Avenue', 'Southern Ave Metro Station, Hillcrest Heights, MD 20745, USA', (38.841047000000003, -76.975003000000001)),
+
+('Stadium-Armory', 'Stadium Armory Metro Station, Washington, DC 20003, USA', (38.885981999999998, -76.977168000000006)),
+
+('Suitland', 'Suitland Metro Station, Suitland-Silver Hill, MD 20746, USA', (38.843839000000003, -76.931610000000006)),
+
+('Takoma', 'Takoma Metro Station, Washington, DC 20012, USA', (38.975431999999998, -77.017420999999999)),
+
+('Tenleytown-AU', 'Tenleytown Metro Station, Washington, DC 20016, USA', (38.947848999999998, -77.079299000000006)),
+
+('Twinbrook', 'Twinbrook Metro Station, Rockville, MD 20852, USA', (39.062389000000003, -77.120791999999994)),
+
+('U Street', 'U Street Metro Station, Washington, DC 20009, USA', (38.917014999999999, -77.029168999999996)),
+
+('Union Station', 'Union Station Metro Station, Washington, DC 20002, USA', (38.897770000000001, -77.006401999999994)),
+
+('Van Dorn', 'Van Dorn Metro Station, Alexandria, VA 22304, USA', (38.799587000000002, -77.129112000000006)),
+
+('Van Ness-UDC', 'Van Ness-UDC Metro Station, Washington, DC 20008, USA', (38.944519, -77.063715999999999)),
+
+('Vienna/Fairfax-GMU', 'Vienna/Fairfax-GMU Metro Station, Oakton, VA 22181, USA', (38.878405000000001, -77.271688999999995)),
+
+('Virginia Square', 'Virginia Square Metro Station, Arlington, VA 22203, USA', (38.883074000000001, -77.103808999999998)),
+
+('Waterfront', 'Waterfront Metro Station, Washington, DC 20024, USA', (38.876477999999999, -77.017189000000002)),
+
+('West Falls Church', 'West Falls Church Metro Station, Idylwood, VA 22043, USA', (38.901103999999997, -77.189136000000005)),
+
+('West Hyattsville', 'West Hyattsville Metro Station, Hyattsville, MD 20782, USA', (38.955027999999999, -76.969521999999998)),
+
+('Wheaton', 'Wheaton Metro Station, Wheaton-Glenmont, MD 20902, USA', (39.038564999999998, -77.050775999999999)),
+
+('White Flint', 'White Flint Metro Station, North Bethesda, MD 20852, USA', (39.047162, -77.112781999999996)),
+
+('Woodley Park-Zoo', 'Woodley Park-Zoo Metro Station, Washington, DC 20008, USA', (38.924999999999997, -77.052350000000004)),
+)
